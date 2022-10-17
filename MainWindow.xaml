@@ -1,0 +1,75 @@
+﻿<Window x:Class="PaintGC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PaintGC"
+        mc:Ignorable="d"
+        Title="PaintGC" Height="450" Width="800">
+    <DockPanel>
+        <Grid Name="MyGrid" KeyUp="TextBlockWriter">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40">
+                </RowDefinition>
+                <RowDefinition Height="9*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <DockPanel  Grid.Row="0">
+                <Button Click="PickBrushMode" Tag="1">
+                    <Button.Content>
+                        <Label>Rectangle</Label>
+                    </Button.Content>
+                </Button>
+                <Button Click="PickBrushMode" Tag="2">
+                    <Button.Content>
+                        <Label>Ellipse</Label>
+                    </Button.Content>
+                </Button>
+                <Button Click="PickBrushMode" Tag="4">
+                    <Button.Content>
+                        <Label>Triangle</Label>
+                    </Button.Content>
+                </Button>
+                <Button  Click="PickBrushMode" Tag="8">
+                    <Button.Content>
+                        <Label>Line</Label>
+                    </Button.Content>
+                </Button>
+                <Button Click="PickBrushMode" Tag="16" >
+                    <Button.Content>
+                        <Label>Pencil</Label>
+                    </Button.Content>
+                </Button>
+                <Button Click="PickBrushMode" Tag="32">
+                    <Button.Content>
+                        <Label>Text</Label>
+                    </Button.Content>
+                </Button>
+                <Button Click="PickBrushColor" Tag="256">
+                    <Button.Content>
+                        <Rectangle Fill="Blue" Width="20" Height="20"></Rectangle>
+                    </Button.Content>
+                </Button>
+                <Button Click="PickBrushColor" Tag="512">
+                    <Button.Content>
+                        <Rectangle Fill="Green" Width="20" Height="20"></Rectangle>
+                    </Button.Content>
+                </Button>
+                <Button Click="PickBrushColor" Tag="1024">
+                    <Button.Content>
+                        <Rectangle Fill="Red" Width="20" Height="20"></Rectangle>
+                    </Button.Content>
+                </Button>
+                <Label Name="DataLabel"></Label>
+                <Button HorizontalAlignment="Right" Click="SaveCanvas">
+                    <Button.Content>
+                        <Label>Save</Label>
+                    </Button.Content>
+                </Button>
+            </DockPanel>
+            <Canvas Grid.Row="1" Name="Canva" Background="Black" 
+            MouseDown="Canva_MouseDown"
+            MouseMove="Canva_MouseMove"
+            MouseUp="Canva_MouseUp"></Canvas>
+        </Grid>
+    </DockPanel>
+</Window>
